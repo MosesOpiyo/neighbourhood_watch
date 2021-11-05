@@ -6,7 +6,7 @@
 THis is a django application used to inform users of their neighbourhood happenings
 
 ## Live Link
-
+https://jiraniwangu2021.herokuapp.com/
 
 ## Setup/Installation Requirements
 * git clone
