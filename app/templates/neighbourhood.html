@@ -1,6 +1,6 @@
 {%extends 'base.html'%} {% block content %} {{block.super}}
 <div class="cantainer">
-    <form action="{% url 'new_hood' %}" method="post">
+    <form style="margin: 20%;" action="{% url 'new_hood' %}" method="post">
         {% csrf_token %} {{form.as_p}}
         <button type="submit" class="btn btn-primary">Submit</button>
 
