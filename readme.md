@@ -3,7 +3,7 @@
 #### By **MosesOpiyo**
 
 ## Description
-THis is a django application used to inform users of their neighbourhood happenings
+THis is a django application used to inform users of his/her neighbourhood happenings
 
 ## Live Link
 https://jiraniwangu2021.herokuapp.com/
