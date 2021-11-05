@@ -11,7 +11,7 @@ https://jiraniwangu2021.herokuapp.com/
 ## Setup/Installation Requirements
 * Git clone
 * Install django into your local machine
-* then get the requirements.txt
+* Then get the requirements.txt
 * run the installation command
 * run your local server
 
