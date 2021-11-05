@@ -9,8 +9,8 @@ THis is a django application used to inform users of his/her neighbourhood happe
 https://jiraniwangu2021.herokuapp.com/
 
 ## Setup/Installation Requirements
-* git clone
-* install django into your local machine
+* Git clone
+* Install django into your local machine
 * then get the requirements.txt
 * run the installation command
 * run your local server
