@@ -38,7 +38,7 @@ https://jiraniwangu2021.herokuapp.com/
  * python
  * django
  * postgresql
- * bootstrap
+
 
 ## Contact
 
