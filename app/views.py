@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.forms import UserCreationForm
-from .forms import LocationForm, NeighbourForm
+from .forms import  NeighbourForm
 from django.contrib import messages
 
-from app.models import Neighbourhood,Location
+from app.models import Neighbourhood
 
 # Create your views here.
 def register(request):
@@ -56,43 +56,20 @@ def logout_user(request):
 def home(request):
     render(request,'home.html')
 
-def Neigbourhood_input(request):
-    neigbourhood = Neighbourhood(user=request.user)
-
+def new_hood(request):
+    current_user = request.user
+    profile = Neighbourhood.objects.get(user=current_user)
     if request.method == 'POST':
-        
-         form = NeighbourForm(request.POST,request.FILES,instance=neigbourhood)
-         if form.is_valid():
-            form.save()
-            
-            return redirect('home')
-         else:
-           
-            return redirect('neighbourhood_input')
-
-
+        form = NeighbourForm(request.POST, request.FILES)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.user = current_user
+            hood.profile = profile
+            hood.save()
+        return redirect('home')
     else:
-        form = NeighbourForm(instance=neigbourhood)
-        return render(request,'neighbourhood.html',{"form":form})
-
-def location_input(request):
-    location = Location(user=request.user)
-
-    if request.method == 'POST':
-        
-         form = LocationForm(request.POST,request.FILES,instance=location)
-         if form.is_valid():
-            form.save()
-            
-            return redirect('home')
-         else:
-           
-            return redirect('Make_a_post')
-
-
-    else:
-        form = NeighbourForm(instance=location)
-        return render(request,'neighbourhood.html',{"form":form})
+        form = NeighbourForm()
+    return render(request, 'new_hood.html', {"form": form})
 
 
 

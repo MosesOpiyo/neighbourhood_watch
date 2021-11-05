@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Location, Neighbourhood, User
+from .models import Neighbourhood, User
 
 class NeighbourForm(ModelForm):
     class Meta:
@@ -11,7 +11,3 @@ class ProfileForm(ModelForm):
         fields = ('profile_pic',)
         exclude = ('name','email','Neighbourhood_id')  
 
-class LocationForm(ModelForm):
-    class Meta:
-        model = Location
-        fields = ('name',)
