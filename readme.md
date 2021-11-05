@@ -13,7 +13,7 @@ https://jiraniwangu2021.herokuapp.com/
 * install django into your local machine
 * then get the requirements.txt
 * run the installation command
-*  run your local server
+* run your local server
 
 
 ## Dependacies
