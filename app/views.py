@@ -18,10 +18,11 @@ def register(request):
 
             
             user = authenticate(username=username,password=password)
+            hood = Neighbourhood.objects.all()
             login(request,user)
             print(request.POST)
             messages.success(request,f"Congratulations, your account was successfully created under {username}")
-            return render(request,'home.html')
+            return render(request,'home.html',{'hood':hood})
          else:
             messages.success(request,f"Sorry, account was not created. Please try again.")
             return redirect('register')
@@ -39,8 +40,9 @@ def login_user(request):
 
         if user is not None:
             login(request,user)
+            hood = Neighbourhood.objects.all()
            
-            return render(request,'home.html')
+            return render(request,'home.html',{'hood':hood})
         else:
             messages.success(request,"Login unsuccessful check either your username or your password")
             return render(request,'login.html')
@@ -54,7 +56,8 @@ def logout_user(request):
     return redirect('login')
 
 def home(request):
-    render(request,'home.html')
+    hood = Neighbourhood.objects.all()
+    render(request,'home.html',{'hood':hood})
 
 def new_hood(request):
     current_user = request.user
@@ -71,5 +74,8 @@ def new_hood(request):
         form = NeighbourForm()
     return render(request, 'new_hood.html', {"form": form})
 
+def single_hood(request,pk):
+      post = Neighbourhood.objects.get(pk=pk)
 
+      return render(request,'hood.html',{'post':post})
 

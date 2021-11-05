@@ -8,6 +8,7 @@ from cloudinary.models import CloudinaryField
 class Neighbourhood(models.Model):
     name = models.CharField(max_length = 60)
     location = models.CharField(max_length=100,null=True)
+    image = models.ImageField(null=False,blank=True,upload_to='images/')
 
     def __str__(self):
         return self.name
